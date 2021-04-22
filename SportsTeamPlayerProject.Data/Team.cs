@@ -15,10 +15,10 @@ namespace SportsTeamPlayerProject.Data
         [Required]
         public string TeamName { get; set; }
         [ForeignKey(nameof(Sport))]
-        public string Sport { get; set; }
-        public virtual Sports Sports { get; set; }
+        public string SportName { get; set; }
+        public virtual Sport Sport { get; set; }
         [ForeignKey(nameof(Player))]
-        public string Player { get; set; }
-        public virtual Players Players { get; set; }
+        public string PlayerName { get; set; }
+        public virtual Player Player { get; set; }
     }
 }

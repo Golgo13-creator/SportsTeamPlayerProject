@@ -8,10 +8,10 @@ using System.Threading.Tasks;
 
 namespace SportsTeamPlayerProject.Services
 {
-    public class TeamService
+    public class TeamServices
     {
         private readonly Guid _userId;
-        public TeamService(Guid userId)
+        public TeamServices(Guid userId)
         {
             _userId = userId;
         }

@@ -13,16 +13,16 @@ namespace SportsTeamPlayerProject.WebAPI.Controllers
     [Authorize]
     public class TeamController : ApiController
     {
-        private TeamService CreateTeamService()
+        private TeamServices CreateTeamService()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
-            var teamService = new TeamService(userId);
+            var teamService = new TeamServices(userId);
             return teamService;
         }
         //get all teams
         public IHttpActionResult Get()
         {
-            TeamService teamService = CreateTeamService();
+            TeamServices teamService = CreateTeamService();
             var teams = teamService.GetTeams();
             return Ok(teams);
         }
@@ -39,7 +39,7 @@ namespace SportsTeamPlayerProject.WebAPI.Controllers
         //get team by sport
         public IHttpActionResult Get(string sport)
         {
-            TeamService teamService = CreateTeamService();
+            TeamServices teamService = CreateTeamService();
             var team = teamService.GetTeamBySport(sport);
             return Ok(team);
         }
