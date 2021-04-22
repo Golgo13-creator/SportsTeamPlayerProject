@@ -10,6 +10,7 @@ using Microsoft.Owin.Security.OAuth;
 using Owin;
 using SportsTeamPlayerProject.WebAPI.Providers;
 using SportsTeamPlayerProject.WebAPI.Models;
+using SportsTeamPlayerProject.Data;
 
 namespace SportsTeamPlayerProject.WebAPI
 {
