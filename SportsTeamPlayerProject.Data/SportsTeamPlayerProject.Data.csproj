@@ -86,11 +86,8 @@
   <ItemGroup>
     <Compile Include="IdentityModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-<<<<<<< HEAD
-    <Compile Include="Team.cs" />
-=======
     <Compile Include="Sport.cs" />
->>>>>>> 389724f4a926f1c7952d3cefd37aa2e51224e9a8
+    <Compile Include="Team.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
