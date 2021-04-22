@@ -54,11 +54,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DeleteSport.cs" />
+    <Compile Include="GetSport.cs" />
+    <Compile Include="PostSport.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+<<<<<<< HEAD
     <Compile Include="TeamCreate.cs" />
     <Compile Include="TeamDetail.cs" />
     <Compile Include="TeamEdit.cs" />
     <Compile Include="TeamListItem.cs" />
+=======
+    <Compile Include="PutSport.cs" />
+    <Compile Include="SportListItem.cs" />
+>>>>>>> 389724f4a926f1c7952d3cefd37aa2e51224e9a8
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
