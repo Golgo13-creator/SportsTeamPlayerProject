@@ -1,4 +1,6 @@
-﻿using System;
+﻿using SportsTeamPlayerProject.Data;
+using SportsTeamPlayerProject.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -51,14 +53,14 @@ namespace SportsTeamPlayerProject.Services
             }
         }
 
-        public PlayerDetails GetPlayerByTeam(string Team)
+        public PlayerDetails GetPlayerByTeam(string teamName)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var player =
                     ctx
                     .Players
-                    .SingleOrDefault(p => p.OwnerId == _userId && p.Team == team);
+                    .SingleOrDefault(p => p.OwnerId == _userId && p.TeamName == teamName);
 
                 if (player is null)
                 {
@@ -69,19 +71,19 @@ namespace SportsTeamPlayerProject.Services
                 {
                     PlayerNumber = player.PlayerNumber,
                     PlayerName = player.PlayerName,
-                    Team = player.Team
+                    TeamName = player.TeamName
                 };
             }
         }
 
-        public PlayerDetails GetPlayerBySport(string Sport)
+        public PlayerDetails GetPlayerBySport(string sportName)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var player =
                     ctx
                     .Players
-                    .SingleOrDefault(p => p.OwnerId == _userId && p.Sport == sport);
+                    .SingleOrDefault(p => p.OwnerId == _userId && p.SportName == sportName);
 
                 if (player is null)
                 {
@@ -92,7 +94,7 @@ namespace SportsTeamPlayerProject.Services
                 {
                     PlayerNumber = player.PlayerNumber,
                     PlayerName = player.PlayerName,
-                    Sport = player.Sport
+                    SportName = player.SportName
                 };
             }
         }
@@ -112,7 +114,7 @@ namespace SportsTeamPlayerProject.Services
             }
         }
 
-        public bool DeletePlayers(int PlayerNumber)
+        public bool DeletePlayers(int playerNumber)
         {
             using (var ctx = new ApplicationDbContext())
             {

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,8 +12,9 @@ namespace SportsTeamPlayerProject.Models
 
         public string PlayerName { get; set; }
 
-        [ForeignKey(nameof(Team))]
-
-        [ForeignKey(nameof(Sport))]
+        //[ForeignKey(nameof(Team))]
+        public string TeamName { get; set; }
+        //[ForeignKey(nameof(Sport))]
+        public string SportName { get; set; }
     }
 }

@@ -10,6 +10,5 @@ namespace SportsTeamPlayerProject.Models
     {
         public int PlayerNumber { get; set; }
         public string PlayerName { get; set; }
-
     }
 }
