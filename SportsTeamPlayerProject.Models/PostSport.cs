@@ -12,8 +12,8 @@ namespace SportsTeamPlayerProject.Models
         [Required]
         public string SportName { get; set; }
         [Required]
-        public string Team { get; set; }
+        public string TeamName { get; set; }
         [Required]
-        public string Player { get; set; }
+        public string PlayerName { get; set; }
     }
 }

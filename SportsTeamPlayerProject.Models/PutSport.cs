@@ -10,7 +10,7 @@ namespace SportsTeamPlayerProject.Models
     {
         public int SportId { get; set; }
         public string SportName { get; set; }
-        public string Team { get; set; }
-        public string Player { get; set; }
+        public string TeamName { get; set; }
+        public string PlayerName { get; set; }
     }
 }
