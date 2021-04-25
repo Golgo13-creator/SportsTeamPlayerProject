@@ -16,8 +16,8 @@ namespace SportsTeamPlayerProject.Models
         [Required]
         [Display(Name = "Sport")]
         public string SportName { get; set; }
-        [Required]
-        [Display(Name = "Player")]
-        public string PlayerName { get; set; }
+        //[Required]
+        //[Display(Name = "Player")]
+        //public string PlayerName { get; set; }
     }
 }

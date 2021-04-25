@@ -8,7 +8,7 @@ namespace SportsTeamPlayerProject.Models
 {
     public class PlayerListItem
     {
-        public int PlayerNumber { get; set; }
+        public int PlayerId { get; set; }
         public string PlayerName { get; set; }
     }
 }

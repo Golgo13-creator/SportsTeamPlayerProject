@@ -11,14 +11,10 @@ namespace SportsTeamPlayerProject.Data
     public class Sport
     {
         [Key]
-        public int SportId { get; set; }
-        [Required]
         public string SportName { get; set; }
-        [ForeignKey(nameof(Team))]
-        public string TeamName { get; set; }
-        public virtual Team Team { get; set; }
-        [ForeignKey(nameof(Player))]
-        public string PlayerName { get; set; }
-        public virtual Player Player { get; set; }
+        [Required]
+        public int SportId { get; set; }
+        public virtual ICollection<PlayerAssignment> PlayerAssignments { get; set; } = new List<PlayerAssignment>();
+        public virtual ICollection<TeamAssignment> TeamAssignments { get; set; } = new List<TeamAssignment>();
     }
 }

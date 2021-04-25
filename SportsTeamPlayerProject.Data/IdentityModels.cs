@@ -35,6 +35,8 @@ namespace SportsTeamPlayerProject.Data
         public DbSet<Sport> Sports { get; set; }
         public DbSet<Team> Teams { get; set; }
         public DbSet<Player> Players { get; set; }
+        public DbSet<TeamAssignment> TeamAssignments { get; set; }
+        public DbSet<PlayerAssignment> PlayerAssignments { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder

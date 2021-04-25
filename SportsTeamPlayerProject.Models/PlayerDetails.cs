@@ -8,13 +8,10 @@ namespace SportsTeamPlayerProject.Models
 {
     public class PlayerDetails
     {
-        public int PlayerNumber { get; set; }
+        public int PlayerId { get; set; }
 
         public string PlayerName { get; set; }
-
-        //[ForeignKey(nameof(Team))]
         public string TeamName { get; set; }
-        //[ForeignKey(nameof(Sport))]
         public string SportName { get; set; }
     }
 }

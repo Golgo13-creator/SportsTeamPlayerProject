@@ -43,6 +43,8 @@ namespace SportsTeamPlayerProject.WebAPI.Controllers
             var team = teamService.GetTeamBySport(sport);
             return Ok(team);
         }
+        //get team by player
+
         //update team
         public IHttpActionResult Put(TeamEdit team)
         {

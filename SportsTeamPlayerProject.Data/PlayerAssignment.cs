@@ -8,15 +8,15 @@ using System.Threading.Tasks;
 
 namespace SportsTeamPlayerProject.Data
 {
-    public class Team
+    public class PlayerAssignment
     {
         [Key]
-        public string TeamName { get; set; }
-        [Required]
-        public int TeamId { get; set; }
+        public int Id { get; set; }
+        [ForeignKey(nameof(Player))]
+        public string PlayerName { get; set; }
+        public virtual Player Player { get; set; }
         [ForeignKey(nameof(Sport))]
         public string SportName { get; set; }
         public virtual Sport Sport { get; set; }
-        public virtual ICollection<TeamAssignment> TeamAssignments { get; set; } = new List<TeamAssignment>(); 
     }
 }

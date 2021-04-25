@@ -21,9 +21,8 @@ namespace SportsTeamPlayerProject.Services
             var entity =
                 new Sport()
                 {
-                    SportName = model.SportName,
-                    TeamName = model.TeamName,
-                    PlayerName = model.PlayerName
+                    SportName = model.SportName
+                    //SportId = model.SportId
                 };
             using (var ctx = new ApplicationDbContext())
             {
@@ -41,8 +40,6 @@ namespace SportsTeamPlayerProject.Services
                         .Sports
                         .Single(e => e.SportId == model.SportId);
                 entity.SportName = model.SportName;
-                entity.TeamName = model.TeamName;
-                entity.PlayerName = model.PlayerName;
                 return ctx.SaveChanges() == 1;
             }
         }

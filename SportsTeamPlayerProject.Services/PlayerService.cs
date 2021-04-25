@@ -22,9 +22,11 @@ namespace SportsTeamPlayerProject.Services
         {
             var entity = new Player
             {
-                OwnerId = _userId,
-                PlayerNumber = model.PlayerNumber,
-                PlayerName = model.PlayerName
+                //OwnerId = _userId,
+                PlayerId = model.PlayerId,
+                PlayerName = model.PlayerName,
+                TeamName = model.TeamName,
+                SportName = model.SportName
             };
 
             using (var ctx = new ApplicationDbContext())
@@ -34,7 +36,6 @@ namespace SportsTeamPlayerProject.Services
             }
 
         }
-
         public IEnumerable<PlayerListItem> GetPlayers()
         {
             using (var ctx = new ApplicationDbContext())
@@ -42,10 +43,9 @@ namespace SportsTeamPlayerProject.Services
                 var query =
                 ctx
                     .Players
-                    .Where(p => p.OwnerId == _userId)
                     .Select(p => new PlayerListItem
                     {
-                        PlayerNumber = p.PlayerNumber,
+                        PlayerId = p.PlayerId,
                         PlayerName = p.PlayerName
                     });
 
@@ -59,8 +59,8 @@ namespace SportsTeamPlayerProject.Services
             {
                 var player =
                     ctx
-                    .Players
-                    .SingleOrDefault(p => p.OwnerId == _userId && p.TeamName == teamName);
+                    .Players//PlayerAssignment table
+                    .SingleOrDefault(p => p.TeamName == teamName);
 
                 if (player is null)
                 {
@@ -69,9 +69,10 @@ namespace SportsTeamPlayerProject.Services
 
                 return new PlayerDetails
                 {
-                    PlayerNumber = player.PlayerNumber,
+                    PlayerId = player.PlayerId,
                     PlayerName = player.PlayerName,
-                    TeamName = player.TeamName
+                    TeamName = player.TeamName,
+                    SportName = player.SportName
                 };
             }
         }
@@ -83,7 +84,7 @@ namespace SportsTeamPlayerProject.Services
                 var player =
                     ctx
                     .Players
-                    .SingleOrDefault(p => p.OwnerId == _userId && p.SportName == sportName);
+                    .SingleOrDefault(p => p.SportName == sportName);
 
                 if (player is null)
                 {
@@ -92,9 +93,10 @@ namespace SportsTeamPlayerProject.Services
 
                 return new PlayerDetails
                 {
-                    PlayerNumber = player.PlayerNumber,
+                    PlayerId = player.PlayerId,
                     PlayerName = player.PlayerName,
-                    SportName = player.SportName
+                    SportName = player.SportName,
+                    TeamName = player.TeamName
                 };
             }
         }
@@ -106,22 +108,22 @@ namespace SportsTeamPlayerProject.Services
                 var oldPlayerData =
                     ctx
                     .Players
-                    .SingleOrDefault(p => p.OwnerId == _userId && p.PlayerNumber == newPlayerData.PlayerNumber);
+                    .SingleOrDefault(p => p.PlayerId == newPlayerData.PlayerId);
 
-                oldPlayerData.PlayerNumber = newPlayerData.PlayerNumber;
+                oldPlayerData.PlayerId = newPlayerData.PlayerId;
                 oldPlayerData.PlayerName = newPlayerData.PlayerName;
                 return ctx.SaveChanges() > 0;
             }
         }
 
-        public bool DeletePlayers(int playerNumber)
+        public bool DeletePlayers(int playerId)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var playerToDelete =
                     ctx
                     .Players
-                    .SingleOrDefault(p => p.OwnerId == _userId && p.PlayerNumber == playerNumber);
+                    .SingleOrDefault(p => p.PlayerId == playerId);
 
                 if (playerToDelete != null)
                 {
